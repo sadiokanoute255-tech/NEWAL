@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+  --color-brand: #2B2118;
+  --color-terracotta: #B8432C;
+  --color-terracotta-dark: #9A3623;
+  --color-gold: #B8432C;
+  --color-cream: #FBF5EA;
+  --color-sand: #EADFC8;
+  --color-muted: #5c5247;
+  --color-or: #E8A317;
+  --color-or-fonce: #A8650A;
+  --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+}
+
+.font-display {
+  font-weight: 600;
+}
+
+@layer components {
+  .champ {
+    @apply block min-h-12 w-full rounded-xl border border-sand bg-white px-4 py-3 outline-none focus:border-or focus:ring-2 focus:ring-or/30;
+  }
+  .etiquette {
+    @apply text-sm font-semibold text-brand;
+  }
+  .bouton {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-linear-to-r from-[#F2B01E] to-[#E8A317] px-7 font-semibold text-[#2a170d] shadow-sm transition hover:brightness-105;
+  }
+  .bouton-or {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-linear-to-r from-[#D98F0C] to-[#B96C06] px-7 text-[1.0625rem] font-bold text-white shadow-md transition hover:brightness-110;
+  }
+  .bouton-clair {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 font-semibold text-brand ring-1 ring-sand transition hover:bg-sand/40;
+  }
+  .carte {
+    @apply rounded-3xl bg-white p-6 shadow-sm ring-1 ring-sand;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Thème « Nuit » de l'espace organisateur.
+   Il s'active quand la page porte la classe « dark » (voir Paramètres).
+   Les couleurs de texte et de bordure passent par les variables ;
+   les fonds clairs sont remplacés un par un.
+   ------------------------------------------------------------------ */
+html.dark {
+  color-scheme: dark;
+  --color-brand: #F3E9D8;
+  --color-muted: #B7A994;
+  --color-sand: #3A2B1E;
+  --color-or-fonce: #F0B429;
+}
+
+html.dark body.bg-cream { background-color: #17100A; }
+
+html.dark .bg-cream { background-color: #2C2017; }
+html.dark .bg-white,
+html.dark .carte,
+html.dark .bouton-clair { background-color: #241A12; }
+html.dark .champ { background-color: #2C2017; color: #F3E9D8; }
+html.dark .bouton-clair:hover { background-color: #34261A; }
+
+html.dark .text-\[\#6b3a1a\] { color: #F0B429; }
+html.dark .bg-\[\#6b3a1a\] { background-color: #8A4F22; }
+
+html.dark #menu { border-right: 1px solid #3A2B1E; }

@@ -1,0 +1,1 @@
+{{-- La navigation de l'administration est dans le menu latéral. --}}
